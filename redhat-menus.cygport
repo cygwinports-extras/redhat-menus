@@ -1,0 +1,21 @@
+NAME="redhat-menus"
+VERSION=12.0.2
+RELEASE=1
+CATEGORY="X11"
+SUMMARY="Desktop menu configurations"
+DESCRIPTION="This package contains the XML files that describe the menu layout
+for GNOME and KDE, and the .desktop files that define the names and icons of
+subdirectories in the menus."
+HOMEPAGE="http://www.redhat.com/"
+md5sum=494af105a03e3679505ceb44c3cb6a77
+SRC_URI="http://pkgs.fedoraproject.org/repo/pkgs/redhat-menus/redhat-menus-${VERSION}.tar.gz/${md5sum}/redhat-menus-${VERSION}.tar.gz"
+
+ARCH="noarch"
+
+src_install() {
+	cd ${B}
+	cyginstall override_DATA=
+
+	keepdir /etc/xdg/menus/{applications,preferences,preferences-post,settings}-merged
+}
+
